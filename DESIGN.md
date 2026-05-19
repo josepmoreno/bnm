@@ -1,14 +1,14 @@
 ---
+version: "alpha"
 name: BNM Studio
-version: "1.1"
 description: "Strategic Design Studio. Mexico City. Full creative coverage for growing companies — branding, motion, web, and strategy under one roof. Two principals. No intermediaries. Senior work, always."
 
 colors:
+  primary: "#252525"
   background: "#F9F6F5"
   surface-light: "#FFFFFF"
   surface-dark: "#161616"
   surface-black: "#000000"
-  primary: "#252525"
   muted: "#666666"
   border: "#252525"
   accent-primary: "#3244DD"
@@ -69,12 +69,11 @@ typography:
     letterSpacing: "-0.6px"
 
 spacing:
-  base: "36px"
-  1x: "36px"
-  2x: "72px"
-  3x: "108px"
-  4x: "144px"
-  element: "20px"
+  xs: "20px"
+  sm: "36px"
+  md: "72px"
+  lg: "108px"
+  xl: "144px"
   card-sm: "36px"
   card-md: "42px"
   card-lg: "50px"
@@ -89,78 +88,70 @@ rounded:
   lg: "42px"
   xl: "50px"
   pill: "28px"
-  circle: "99px"
-
-animation:
-  fast: "0.1s"
-  medium: "0.3s"
-  slow: "0.6s"
-  easing: "cubic-bezier(0.23, 0.65, 0.74, 1.09)"
-
-breakpoints:
-  xs: "0px"
-  sm: "576px"
-  md: "768px"
-  lg: "992px"
-  xl: "1200px"
-  xxl: "1400px"
+  full: "99px"
 
 components:
   button-outline:
-    backgroundColor: "transparent"
-    textColor: "#252525"
-    rounded: "28px"
+    backgroundColor: "{colors.surface-light}"
+    textColor: "{colors.primary}"
+    rounded: "{rounded.pill}"
     padding: "12px 22px"
     typography: "label"
   button-outline-dark:
     backgroundColor: "transparent"
-    textColor: "#FFFFFF"
-    rounded: "28px"
+    textColor: "{colors.text-on-dark}"
+    rounded: "{rounded.pill}"
     padding: "12px 22px"
     typography: "label"
   button-cta-blue:
-    backgroundColor: "#3244DD"
-    textColor: "#FFFFFF"
-    rounded: "42px"
+    backgroundColor: "{colors.accent-primary}"
+    textColor: "{colors.text-on-accent-blue}"
+    rounded: "{rounded.lg}"
     size: "52px"
   button-cta-lime:
-    backgroundColor: "#D8EF5B"
-    textColor: "#252525"
-    rounded: "42px"
+    backgroundColor: "{colors.accent-secondary}"
+    textColor: "{colors.text-on-accent-lime}"
+    rounded: "{rounded.lg}"
     size: "52px"
   button-hamburger:
-    backgroundColor: "#252525"
-    textColor: "#FFFFFF"
-    rounded: "99px"
+    backgroundColor: "{colors.primary}"
+    textColor: "{colors.text-on-dark}"
+    rounded: "{rounded.full}"
     size: "44px"
   tag:
     backgroundColor: "transparent"
-    textColor: "#252525"
-    rounded: "99px"
+    textColor: "{colors.primary}"
+    rounded: "{rounded.full}"
+    padding: "6px 14px"
+    typography: "label"
+  tag-dark:
+    backgroundColor: "transparent"
+    textColor: "{colors.text-on-dark}"
+    rounded: "{rounded.full}"
     padding: "6px 14px"
     typography: "label"
   card-light:
-    backgroundColor: "#FFFFFF"
-    rounded: "26px"
-    padding: "50px"
+    backgroundColor: "{colors.surface-light}"
+    rounded: "{rounded.md}"
+    padding: "{spacing.card-lg}"
   card-dark:
-    backgroundColor: "#161616"
-    textColor: "#FFFFFF"
-    rounded: "26px"
-    padding: "50px"
+    backgroundColor: "{colors.surface-dark}"
+    textColor: "{colors.text-on-dark}"
+    rounded: "{rounded.md}"
+    padding: "{spacing.card-lg}"
   card-accent-blue:
-    backgroundColor: "#3244DD"
-    textColor: "#FFFFFF"
-    rounded: "26px"
-    padding: "50px"
+    backgroundColor: "{colors.accent-primary}"
+    textColor: "{colors.text-on-accent-blue}"
+    rounded: "{rounded.md}"
+    padding: "{spacing.card-lg}"
   card-accent-lime:
-    backgroundColor: "#D8EF5B"
-    textColor: "#252525"
-    rounded: "26px"
-    padding: "50px"
+    backgroundColor: "{colors.accent-secondary}"
+    textColor: "{colors.text-on-accent-lime}"
+    rounded: "{rounded.md}"
+    padding: "{spacing.card-lg}"
   nav:
-    backgroundColor: "#F9F6F5"
-    textColor: "#252525"
+    backgroundColor: "{colors.background}"
+    textColor: "{colors.primary}"
 ---
 
 ## Overview
@@ -187,9 +178,9 @@ The reference feeling: an editorial publication that also builds products. Consi
 
 The palette is a high-contrast warm neutral system with two accent colors.
 
-**Background (`#F9F6F5`)** — Warm off-white. Every page lives on this. Not pure white — the warmth softens near-black type without reducing legibility. Never use as a card surface — reserve `#FFFFFF` for that.
+**Primary (`#252525`)** — Near-black. Headlines, body copy, borders, buttons on light surfaces. Not pure black — aligned in temperature with the warm background.
 
-**Primary (`#252525`)** — Near-black. Headlines, body copy, borders, buttons on light surfaces. Not pure black — aligned in temperature with the background.
+**Background (`#F9F6F5`)** — Warm off-white. Every page lives on this. Not pure white — the warmth softens near-black type without reducing legibility. Never use as a card surface — reserve `surface-light` for that.
 
 **Muted (`#666666`)** — Supporting information only: captions, secondary descriptions, metadata. Never for primary copy, headings, or anything that must be read first.
 
@@ -206,8 +197,8 @@ Funnel Display defines the brand. At 140px, weight 600, -0.6px letter-spacing, i
 The split between **Funnel Display** (headings) and **Funnel Sans weight 300** (body) creates clear hierarchy through form and weight contrast — not just size.
 
 **Rules:**
-- Display headlines are tight by design (lineHeight = fontSize at 140px). Never apply default browser line-height to large type.
-- Body copy (Funnel Sans, weight 300) is deliberately light. The 600 to 300 weight contrast is intentional — do not use weight 400 for body.
+- Display headlines are tight by design (`lineHeight = fontSize` at 140px). Never apply default browser line-height to large type.
+- Body copy (Funnel Sans, weight 300) is deliberately light. The 600-to-300 weight contrast is intentional — do not use weight 400 for body.
 - Stat numbers (50+, 80%, 9+) use display scale. They are typographic objects, not data.
 - Use Funnel Display only at `36px` and above. Below that, use Funnel Sans.
 - Web font loading: include `font-display: swap` and preload the Display variant.
@@ -228,95 +219,58 @@ All spacing is a multiple of `36px`. This is the single most important layout ru
 - Less than 640px: Single column, stacked, font sizes approximately 80% of desktop.
 - 640–1024px: 2 columns where appropriate.
 - Greater than 1440px: Content centered inside max-width container.
-- Touch targets: minimum 44x44px.
+- Touch targets: minimum 44×44px.
 
-## Elevation & Depth
+## Rounded
 
-No box shadows on cards. Depth is created through surface color contrast:
+The shape language is rounded and controlled — never organic.
 
-1. **Background** (`#F9F6F5`) — page plane.
-2. **Light cards** (`#FFFFFF`) — lifted by contrast.
-3. **Dark cards** (`#161616`) — grounded and heavy.
-4. **Accent cards** (`#3244DD` or `#D8EF5B`) — pop by saturation.
+**`md` (26px)** — The site's defining shape. All standard cards use this exactly. Never mix radii within the same card grid section.
 
-Animation easing `cubic-bezier(0.23, 0.65, 0.74, 1.09)` has a slight overshoot — confident and settled, not mechanical. Use for all hover states and transitions — never `ease-in-out` or `linear`.
+**`lg` (42px)** — CTA circle buttons (the arrow ↗ buttons on capability cards). Always positioned in a corner — top-right or bottom-right. Never centered or full-width. Blue (`#3244DD`) or lime (`#D8EF5B`) fill depending on card context. This is a visual signature — maintain it exactly.
 
-## Shapes
+**`pill` (28px)** — Nav CTA and secondary pill buttons.
 
-**Card radius: `26px`** — The site's defining shape. All standard cards use this exactly. Never mix radii within the same card grid section.
+**`full` (99px)** — Tags and icon buttons (hamburger). Always outline for tags, never filled.
 
-**CTA circles:** `42px` radius. Arrow (↗) buttons on capability cards. Always positioned corner — top-right or bottom-right. Never centered, never full-width. Blue (`#3244DD`) or lime (`#D8EF5B`) fill depending on card context. This is a visual signature — maintain it exactly.
-
-**Pill buttons:** `28px` radius. Nav CTA and secondary actions.
-
-**Tags:** Full pill (`99px`). Always outline, never filled.
-
-No organic or free-form shapes in the UI layer — those exist only in the 3D imagery.
+No organic or free-form shapes in the UI layer — those exist only in the 3D rendered imagery.
 
 ## Components
 
 ### Navigation
-Logo left (mark + wordmark). Right: `Say Hello ↗` outline pill + dark filled circle (hamburger). Background `#F9F6F5`, no border, no shadow. Continuous with the page.
+Logo left (mark + wordmark). Right: `Say Hello ↗` outline pill (`button-outline`) + dark filled circle (`button-hamburger`). Background matches page (`background` token), no border, no shadow — continuous with the page.
 
 ### Capability Card
-Structure: Funnel Display h2 + outline tags row + Funnel Sans 300 body + 3D object + CTA circle ↗ corner. Cards alternate light (`#FFFFFF`) and dark (`#161616`) through the grid. 3D object may overlap the card boundary — do not clip.
+Structure: `[Funnel Display h2]` + `[tag row]` + `[Funnel Sans 300 body]` + `[3D object]` + `[CTA circle ↗ corner]`. Cards alternate `card-light` and `card-dark` through the grid. Tags use `tag` on light cards, `tag-dark` on dark cards. The 3D object may overlap the card boundary — do not clip.
 
 ### Tag
-Outline pill. Transparent fill. `#252525` border and text on light surfaces. White border and text on dark surfaces. Always uppercase, tracked. Max 6 per card.
+Outline pill. Transparent fill. Uses `{colors.primary}` border and text on light surfaces (`tag`). Inverts to `{colors.text-on-dark}` on dark surfaces (`tag-dark`). Always uppercase, tracked. Max 6 per card.
 
 ### Stat Block
-Display-scale number + Funnel Sans 300 caption below. Lives inside colored card or directly on page background. The number dominates — everything else is secondary.
+Display-scale number (`stat` typography) + Funnel Sans 300 caption below. Lives inside `card-accent-blue`, `card-accent-lime`, `card-dark`, or directly on the page background. The number dominates — everything else is secondary.
 
 ### Hero Headline
-Funnel Display 140px, weight 600. Lime block (`#D8EF5B`) behind accent word(s). 3D objects floating over the text — not clipped, not constrained. This controlled overlap is the hero's signature. Do not clean it up.
+`display` typography, `{colors.primary}` text. Accent word(s) receive a `{colors.accent-secondary}` background block. 3D objects float over the text — not clipped, not constrained. This controlled overlap is the hero's signature. Do not clean it up.
 
 ## Do's and Don'ts
 
 - Do: Use `Funnel Display` for all headings
 - Do: Use `Funnel Sans` weight 300 for body copy
 - Do: Space in multiples of `36px`
-- Do: Use `#3244DD` for primary interactive CTAs
-- Do: Use lime once per section as secondary accent
-- Do: Alternate light and dark cards in capabilities grid
+- Do: Use `{colors.accent-primary}` for primary interactive CTAs
+- Do: Use `{colors.accent-secondary}` once per section as secondary accent
+- Do: Alternate `card-light` and `card-dark` in the capabilities grid
 - Do: Let 3D objects cross card boundaries
-- Do: Apply `cubic-bezier(0.23, 0.65, 0.74, 1.09)` to all transitions
-- Do: Use `#252525` for all primary text
-- Do: Use `#666666` for muted and secondary text only
+- Do: Apply `cubic-bezier(0.23, 0.65, 0.74, 1.09)` to all transitions (0.3s medium, 0.1s fast)
+- Do: Use `{colors.primary}` for all primary text
+- Do: Use `{colors.muted}` for secondary text only
 - Don't: Substitute Funnel with Inter, Roboto, or system fonts
-- Don't: Use Funnel Sans weight 400 for body — breaks the 600 to 300 contrast
-- Don't: Use arbitrary spacing values
-- Don't: Use lime for primary interactive elements
-- Don't: Scatter lime across all interactive elements
-- Don't: Use the same surface for all capability cards
+- Don't: Use Funnel Sans weight 400 for body — breaks the 600-to-300 contrast
+- Don't: Use arbitrary spacing values outside the 36px scale
+- Don't: Use `{colors.accent-secondary}` for primary interactive elements
+- Don't: Show both accent colors in the same visible screen section
+- Don't: Normalize all capability cards to the same size
 - Don't: Clip 3D imagery to card bounds
-- Don't: Use `ease-in-out` — too generic
-- Don't: Use pure `#000000` for text — too harsh against `#F9F6F5`
-- Don't: Use muted color for anything the user reads first
-
-## Agent Prompt Guide
-
-Quick token reference:
-
-```
-Background:    #F9F6F5
-Surface light: #FFFFFF
-Surface dark:  #161616
-Text:          #252525
-Muted:         #666666
-Accent blue:   #3244DD   (primary CTA / interactive)
-Accent lime:   #D8EF5B   (secondary, one per section)
-Border:        #252525
-Heading font:  Funnel Display, weight 600, -0.6px tracking
-Body font:     Funnel Sans, weight 300
-Base spacing:  36px (multiples only)
-Card radius:   26px
-Easing:        cubic-bezier(0.23, 0.65, 0.74, 1.09)
-```
-
-Example prompts:
-
-1. Hero section: `#F9F6F5` background, Funnel Display 140px weight 600 in `#252525`, accent word with `#D8EF5B` highlight block, 3D object overlapping the type.
-2. Light capability card: `#FFFFFF` surface, `26px` radius, 50px padding, Funnel Display 70px heading, Funnel Sans 300 body, outline tags, `#3244DD` circle CTA top-right.
-3. Dark capability card: `#161616` background, white Funnel Display 70px heading, white outline tags, `#D8EF5B` circle CTA.
-4. Stat card: `#3244DD` background, Funnel Display 140px in white, Funnel Sans 300 caption, `26px` radius.
-5. Nav: `#F9F6F5` background, logo left, right: outline pill Say Hello (28px radius) + dark filled circle hamburger.
+- Don't: Use `ease-in-out` for transitions — too generic
+- Don't: Use pure `#000000` for text — too harsh against `{colors.background}`
+- Don't: Use `{colors.muted}` for anything the user must read first
